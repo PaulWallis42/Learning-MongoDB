@@ -6,12 +6,11 @@ describe('Finding records', function(){
   var hero;
 
   beforeEach(function(done){
-      hero = new SuperHero({
+    hero = new SuperHero({
       name: 'Batman',
       power: 'Gadgets & Martial Arts',
       rating: 7
     });
-
     hero.save().then(function(){
       done();
     });
