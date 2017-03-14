@@ -11,7 +11,7 @@ const SuperHeroSchema = new Schema({
 });
 
 // Create the model 'superhero' with the schema 'SuperHeroSchema' and assign to a const 'SuperHero' (superhero becomes superheros)
-const SuperHero = mongoose.model('superhero', SuperHeroSchema)
+const SuperHero = mongoose.model('superhero', SuperHeroSchema);
 
-//Allow other parts of app to access the model
-module.export = SuperHero;
+//Allow other parts of app to access the model when they request this file
+module.exports = SuperHero;
