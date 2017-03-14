@@ -1,6 +1,5 @@
 // Require the 'mongoose' package (like an object model mapper) and assign it to the constant mongoose.
 const mongoose = require('mongoose');
-
 // Overiding mongoose promises(depricated) with ES6 promises
 mongoose.Promise = global.Promise;
 
@@ -23,4 +22,12 @@ before(function(done){
   }).on('error', function(error){
     console.log('There was and error connecting to the db:', error);
   });
+});
+
+// Database cleaner: before each test runs mocha finds the before each hook and -
+// executes the code within which is deleting all records from the superheros collection
+beforeEach(function(done){
+  mongoose.connection.collections.superheros.drop(function(){
+    done();
+  })
 });
