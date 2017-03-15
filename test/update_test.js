@@ -28,5 +28,16 @@ describe('Updating records', function(){
     });
   });
 
+  it('Increments records weight value by 1', function(done){
+    // {} =  find all records in the db
+    // $inc: is an update operator of which there are several different types
+    SuperHero.update({}, {$inc: { rating: 1 }}).then(function(){
+      SuperHero.findOne({name: 'Batman'}).then(function(result){
+        assert(result.rating === 8);
+        done();
+      });
+    });
+  });
+
 
 });
