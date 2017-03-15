@@ -1,3 +1,5 @@
+// Run mongodb from command line: mongod
+
 // Require the 'mongoose' package (like an object model mapper) and assign it to the constant mongoose.
 const mongoose = require('mongoose');
 // Overiding mongoose promises(depricated) with ES6 promises
@@ -29,5 +31,5 @@ before(function(done){
 beforeEach(function(done){
   mongoose.connection.collections.superheros.drop(function(){
     done();
-  })
+  });
 });
